@@ -1,0 +1,78 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.box {
+  border: 1px solid black;
+  font-family: Mulish;
+  background-color: white;
+  padding: 1.5em 2.5em 1em;
+  box-shadow: rgba(0, 0, 0, 0.288) 3px 3px 2px;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 1000;
+  margin-bottom: 0.5rem;
+}
+
+.desc {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.input_cover {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0.7em auto;
+}
+
+.input {
+  font-size: 0.9rem;
+  width: 90%;
+  height: 2.8em;
+  border: none;
+  background-color: #e5e5e5;
+  padding-left: 1rem;
+}
+
+.input::placeholder {
+  font-weight: 600;
+}
+
+.button_cover {
+  width: 100%;
+}
+
+.main_but {
+  background-color: #2637b8;
+  border: 1px solid #2637b8;
+  color: white;
+  font-weight: 700;
+  width: 95%;
+  height: 2.8em;
+  font-size: 0.9rem;
+  transition: 0.2s ease-in;
+}
+
+.main_but:hover {
+  background-color: white;
+  color: #2637b8;
+}
+
+.or {
+  margin: 1rem 0;
+}
+
+.google {
+  font-weight: 700;
+  width: 95%;
+  height: 2.8em;
+  font-size: 0.9rem;
+}

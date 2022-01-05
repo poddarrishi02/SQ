@@ -1,0 +1,17 @@
+.map .jvectormap-container svg {
+  position: relative;
+  height: 60vh;
+}
+.map-cover {
+  margin: 0 5vw;
+}
+
+.jvectormap-zoomin {
+  display: none;
+}
+.jvectormap-zoomout {
+  display: none;
+}
+.jvectormap-tip {
+  display: none;
+}

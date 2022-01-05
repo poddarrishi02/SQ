@@ -1,0 +1,74 @@
+.footer{
+    min-height: fit-content;
+    /* position: fixed; */
+    /* bottom: 0; */
+}
+.row1{
+    flex:3;
+}
+.col1,.col2{
+    flex: 1;
+}
+.col1{
+    border-right: 1px solid rgba(30, 40, 51, 0.07);
+    padding: 50px;
+}
+.content{
+    width: 17vw;
+}
+.row2{
+    flex: 1;
+}
+.icons,.col1,.col2,.menulists,.follow,.menulist1,.menulist2,.row1,.row2{
+    display: flex;
+}
+.menulist1,.menulist2,.follow{
+    flex-direction: column;
+}
+.menulists{
+    flex: 1;
+    justify-content: space-evenly;
+}
+.follow{
+    flex: 1;
+    align-items: center;
+}
+.col1,.row2{
+    justify-content: space-evenly;
+}
+.row1{
+    border-bottom:0.5px solid rgba(30, 40, 51, 0.07);
+    border-top:0.5px solid rgba(30, 40, 51, 0.07);
+}
+.col1,.col2{
+    padding-top: 8vh;
+    padding-bottom: 3vh;
+}
+.menuitem{
+    margin-bottom: 3vh;
+}
+.logo,.menuitem,.icon{
+    cursor: pointer;
+}
+.icons{
+    display: flex;
+}
+.iconhead{
+    text-align: center;
+}
+.icondiv{
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.icons{
+    margin: 2vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+.copyright{
+    text-align: center;
+    color: rgba(30, 40, 51, 0.2);
+    margin: 5vh;
+}

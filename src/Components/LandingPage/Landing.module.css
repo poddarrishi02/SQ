@@ -1,0 +1,17 @@
+.container {
+  /* overflow: scroll; */
+  /* height: 100vh; */
+  /* scroll-snap-points-y: repeat(100vh); */
+  /* scroll-snap-type: y mandatory; */
+}
+
+.container .first {
+  padding: 0 4em 0;
+  margin-bottom: 10%;
+  /* height: 100vh; */
+  /* scroll-snap-align: start; */
+}
+.container .second {
+  /* height: 100vh; */
+  /* scroll-snap-align: start; */
+}

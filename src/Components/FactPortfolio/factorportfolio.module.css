@@ -1,0 +1,39 @@
+.outer{
+    margin: 5vw;
+}
+.navheading{
+    color: #495057;
+    font-weight: 200;
+}
+.heading{
+    margin-bottom: 0;
+    margin-top: 10vh;
+}
+.subheading{
+    font-weight: 200;
+    margin: 0;
+    color:#495057;
+    opacity: 70%;
+}
+.description{
+    margin-top: 5vh;
+    width: 50vw;
+}
+.stepsheading{
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    display: flex;
+}
+.info{
+    margin-left: 1vw;
+    background-color: #D9DDFF;
+    color:#2637B8;
+    height: 1.2vw;
+    font-size: 0.8vw;
+    font-weight: bold;
+    width: 1.2vw;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

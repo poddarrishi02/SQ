@@ -1,0 +1,12 @@
+.container{
+  min-height: calc(100vh - 40px);
+}
+
+.header {
+  padding: 0 4em 0;
+
+}
+
+.footer{
+  z-index: 1;
+}
