@@ -1,33 +1,39 @@
-.outer{
+.outer {
     margin: 5vw;
 }
-.navheading{
+
+.navheading {
     color: #495057;
     font-weight: 200;
 }
-.heading{
+
+.heading {
     margin-bottom: 0;
     margin-top: 10vh;
 }
-.subheading{
+
+.subheading {
     font-weight: 200;
     margin: 0;
-    color:#495057;
+    color: #495057;
     opacity: 70%;
 }
-.description{
+
+.description {
     margin-top: 5vh;
     width: 50vw;
 }
-.stepsheading{
+
+.stepsheader {
     margin-top: 10vh;
     margin-bottom: 5vh;
     display: flex;
 }
-.info{
+
+.info {
     margin-left: 1vw;
     background-color: #D9DDFF;
-    color:#2637B8;
+    color: #2637B8;
     height: 1.2vw;
     font-size: 0.8vw;
     font-weight: bold;
@@ -36,4 +42,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.step, .headrow {
+    display: flex;
+}
+.leftmenu{
+    margin-left: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #ADB5BD;
+    width: 0.5px;
+    align-items: center;
+    /* border: 0.5px solid #ADB5BD; */
+}
+.bullet {
+    background: #F0F4FA;
+    height: 5vh;
+    width: 5vh;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.num {
+    font-weight: bold;
+    transform: rotate(-45deg);
+}
+
+.content {
+    margin-left: 5vw;
+    padding-bottom: 10vh;
+    padding-top: 0.5vw;
+}
+
+.stepheading {
+    font-weight: bold;
+    font-size: large;
+}
+.bracketed {
+    font-size: small;
+    align-self: flex-end;
 }
