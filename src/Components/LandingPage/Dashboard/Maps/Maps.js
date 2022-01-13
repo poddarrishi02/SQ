@@ -25,7 +25,7 @@ const handleClick = (e, countryCode) => {
   console.log(mapData);
 };
 
-console.log(getData());
+// console.log(getData());
 
 const Maps = () => {
   for (var key in p) {
