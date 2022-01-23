@@ -57,6 +57,7 @@
     border: 1px solid #0116CB;
     box-sizing: border-box;
     border-radius: 4px;
+    align-self: flex-end;
 }
 
 .runtext {
@@ -70,4 +71,11 @@
     /* Background */
 
     color: #FFFFFF;
+}
+
+.outer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 43px;
+    margin-bottom: 117px;
 }

@@ -3,6 +3,7 @@ div[class^='examplethumb']{
     transform: rotate(135deg);
     height: 12px;
     width: 12px;
+    outline: none;
 }
 .examplethumb0{
     background: #9B5DE5;

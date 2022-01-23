@@ -4,6 +4,8 @@ import data from "../../assets/response.json"
 // import DatePicker from '@mui/lab/DatePicker';
 import { RiCloseLine } from 'react-icons/ri'
 import 'react-icons/'
+import Graphs from './Graphs'
+import OptiSlider from './OptiSlider'
 function Optimiser() {
     const [activeIndex1, setactiveIndex1] = useState(0)
     const [activeIndex2, setactiveIndex2] = useState(0)
@@ -82,11 +84,11 @@ function Optimiser() {
                         </div>
                         <div className={styles.content}>
                             <div className={styles.headrow}>
-                                <div className={styles.stepheading}>Factor</div>
+                                <div className={styles.stepheading}>Choose investment constraint</div>
                                 <div className={styles.bracketed}>&nbsp;&nbsp;(can be more than one)</div>
                             </div>
                             <div>
-                                <div style={{display:"flex",justifyContent:"space-between"}}>
+                                <div style={{ display: "flex", justifyContent: "space-between" }}>
                                     <div>
                                         <input type="checkbox" id="minmax1" name="minmax1"></input>
                                         <label for="minmax1">Min/Max stock weight</label>
@@ -115,15 +117,12 @@ function Optimiser() {
                         </div>
                         <div className={styles.content}>
                             <div className={styles.headrow}>
-                                <div className={styles.stepheading}>Enter NSE symbols to compare</div>
+                                <div className={styles.stepheading}>Choose factor constraint</div>
                                 <div className={styles.bracketed}>&nbsp;&nbsp;(seperated by comma)</div>
                             </div>
-                            <div className={styles.cnstr}>
-                                <div>Top 10 holdings</div>
-                                <div>Factor Analysis</div>
-                                <div>Stock Sector</div>
-                                <div>Returns</div>
-                            </div>
+                            <OptiSlider/>
+                            <Graphs />
+
                         </div>
                     </div>
                 </div>
