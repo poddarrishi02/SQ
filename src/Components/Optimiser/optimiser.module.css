@@ -1,0 +1,227 @@
+.outer {
+    margin: 5vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.navheading {
+    color: #495057;
+    font-weight: 200;
+}
+
+.heading {
+    margin-bottom: 0;
+    margin-top: 10vh;
+}
+
+.subheading {
+    font-weight: 200;
+    margin: 0;
+    color: #495057;
+    opacity: 70%;
+}
+
+.description {
+    margin-top: 5vh;
+    width: 50vw;
+}
+
+.stepsheader {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    display: flex;
+}
+
+.step, .headrow {
+    display: flex;
+}
+
+.leftmenu {
+    margin-left: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #ADB5BD;
+    width: 0.5px;
+    align-items: center;
+    /* border: 0.5px solid #ADB5BD; */
+}
+
+.bullet {
+    background: #F0F4FA;
+    height: 5vh;
+    width: 5vh;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.num {
+    font-weight: bold;
+    transform: rotate(-45deg);
+}
+
+.content {
+    margin-left: 5vw;
+    padding-bottom: 10vh;
+    padding-top: 0.5vw;
+}
+
+.stepheading {
+    font-weight: bold;
+    font-size: large;
+}
+
+.bracketed {
+    font-size: small;
+    align-self: flex-end;
+}
+
+.avbtn, .selectallbtn {
+    color: #2637B8;
+    text-decoration: underline;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.avbtn {
+    margin-bottom: 1vh;
+}
+
+.selectallbtn {
+    margin-left: 1.5vw;
+}
+
+.index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 2vw;
+    border-radius: 2vw;
+    margin-left: 2vw;
+    cursor: pointer;
+}
+
+.index:hover {
+    background: #d9ddff40;
+}
+
+/* ......MIGHT BE USEFUL........................................... */
+
+.table {
+    box-sizing: border-box;
+    border-collapse: collapse;
+    border: 1px solid #E9ECEF;
+}
+
+.tablediv {
+    max-width: 50vw;
+    overflow-x: auto;
+}
+
+.nonhead {
+    max-height: 60vh;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+}
+
+.table thead th, .table tbody td {
+    min-width: 12vw;
+}
+
+.table th, .table td {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    text-align: right;
+}
+
+.table tr:nth-child(even) {
+    background: #E9ECEF;
+}
+
+.nonhead tr:nth-child(odd) {
+    background: #fff;
+}
+
+.trhead {
+    background: #D9DDFF;
+    position: sticky;
+    top: 0;
+}
+
+.table th {
+    color: #495057;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(179, 177, 177);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(136, 136, 136);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(68, 68, 68);
+    border-radius: 10px;
+}
+
+/* .........MIGHT BE USEFUL........................................ */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+
+.decinp {
+    padding: 10px;
+    padding-left: 20px;
+    background: #E9ECEF;
+    border-radius: 4px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inputdiv {
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    margin: 2px;
+}
+
+.resetbtn {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+    text-decoration-line: underline;
+    color: #2637B8;
+}
+.cnstr{
+    display: flex;
+    margin: auto;
+}

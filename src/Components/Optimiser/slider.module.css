@@ -1,0 +1,73 @@
+.horizontalslider {
+    width: 280px;
+}
+
+.exampletrack {
+    top: 5.5px;
+    height: 1px;
+    background: #C4C4C4;
+    border-radius: 12px;
+}
+
+.slhead {
+    margin-top: -5.5px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    width: 110px;
+}
+
+.cnstr {
+    display: flex;
+    margin-bottom: 37.46px;
+}
+
+.frow {
+    display: flex;
+    margin: auto;
+    width: fit-content;
+}
+
+.fcol2 {
+    margin-left: 183.31px;
+}
+
+.fhead {
+    margin-left: 90px;
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.fh {
+    font-size: 10px;
+    line-height: 13px;
+    color: #495057;
+    width: 55px;
+    text-align: center;
+}
+
+.runbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 14px;
+    width: 99px;
+    height: 37px;
+    background: #0116CB;
+    border: 1px solid #0116CB;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.runtext {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Background */
+
+    color: #FFFFFF;
+}

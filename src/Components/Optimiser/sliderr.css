@@ -1,0 +1,27 @@
+div[class^='examplethumb']{
+    cursor: pointer;
+    transform: rotate(135deg);
+    height: 12px;
+    width: 12px;
+}
+.examplethumb0{
+    background: #9B5DE5;
+}
+.examplethumb1{
+    background: #F15BB5;
+}
+.examplethumb2{
+    background: #FFBE0B;
+}
+.examplethumb3{
+    background: #00BBF9;
+}
+.examplethumb4{
+    background: #00BAA1;
+}
+.examplethumb5{
+    background: #EF476F;
+}
+.examplethumb6{
+    background: #508BE2;
+}

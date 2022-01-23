@@ -1,0 +1,20 @@
+.menu {
+    display: flex;
+    margin: auto;
+    width: fit-content;
+}
+
+.menuitem, .menuactive {
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    color: #495057;
+    margin: 0px 39px;
+    cursor: pointer;
+}
+
+.menuactive {
+    font-weight: bold;
+    text-decoration-line: underline;
+    color: #0116CB;
+}
