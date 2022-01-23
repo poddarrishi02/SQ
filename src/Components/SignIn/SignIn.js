@@ -15,7 +15,9 @@ function SignIn() {
   const onLoginSuccess = async (res) => {
     console.log("Login Success:", res.profileObj);
     AuthCtx.login("dummyEmail", "dummyPassword");
+    // alert("NAVIGATINGG")
     navigate("/main");
+    // alert("NAVIGATed")
     // const link = "http://localhost:8000";
     // console.log(`${link}`);
     // await axios.post(`${link}/`, { res });

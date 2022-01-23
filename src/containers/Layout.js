@@ -10,17 +10,13 @@ export default function Layout(props) {
     <div>
       <div className={classes.container}>
         <div className={classes.header}>
-          {/* <ProtectedRoute> */}
-            <Navbar />
-          {/* </ProtectedRoute> */}
+            {!!localStorage.getItem("token") ? <Navbar /> : null}
         </div>
         {props.children}
       </div>
-      {AuthCtx.isLoggedIn && (
+      {!!localStorage.getItem("token") && (
         <div className={classes.footer}>
-          {/* <ProtectedRoute> */}
-            <Footer />
-          {/* </ProtectedRoute> */}
+          {!!localStorage.getItem("token") ? <Footer /> : null}
         </div>
       )}
     </div>

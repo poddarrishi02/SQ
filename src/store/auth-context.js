@@ -11,7 +11,7 @@ const AuthContextProvider = (props) => {
   // Adding Persistance
   const localToken = localStorage.getItem("token");
   const [token, setToken] = useState(localToken);
-  const isLoggedIn = !!token;
+  let isLoggedIn = !!token;
 
   const login = async (email, password) => {
     setToken("s343ad43a43s43d34sa43d43c4awsdceawfc");

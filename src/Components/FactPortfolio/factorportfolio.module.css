@@ -103,9 +103,10 @@
 
 .datepicker {
     margin-left: 5vw;
-    background: #E9ECEF;
+    
+    /* background: #E9ECEF; */
     /* border: 1px solid #555; */
-    color: #ADB5BD;
+    /* color: #ADB5BD; */
 }
 .datepicker .today{
     background: #ffcc00 !important;
@@ -165,7 +166,7 @@
 }
 
 .factorinput {
-    color: #ADB5BD;
+    accent-color: #2637B8;
 }
 
 .avbtn, .selectallbtn {

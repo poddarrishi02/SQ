@@ -19,20 +19,12 @@ function App() {
           <Routes>
             <Route path="/signin" element={<SignIn />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
-            <Route
-              exact
-              path="/main"
-              element={
-                <ProtectedRoute>
-                  <Landing />
-                </ProtectedRoute>
-              }
-            ></Route>
-            <Route path="/" element={<SignIn />}></Route>
-            <Route path="/factorportfolio" element={<FactorPortfolio />}></Route>
-            <Route path="/optimiser" element={<Optimiser />}></Route>
-            <Route path="/slider" element={<OptiSlider />}></Route>
-            <Route path="/graphs" element={<Graphs />}></Route>
+            <Route exact path="/main" element={<ProtectedRoute><Landing /></ProtectedRoute>}></Route>
+            <Route exact path="/factorportfolio" element={<ProtectedRoute><FactorPortfolio /></ProtectedRoute>}></Route>
+            <Route exact path="/optimiser" element={<ProtectedRoute><Optimiser /></ProtectedRoute>}></Route>
+            <Route exact path="/slider" element={<ProtectedRoute><OptiSlider /></ProtectedRoute>}></Route>
+            <Route exact path="/graphs" element={<ProtectedRoute><Graphs /></ProtectedRoute>}></Route>
+            <Route exact path="/" element={<ProtectedRoute><SignIn /></ProtectedRoute>}></Route>
           </Routes>
         </Layout>
       </div>
