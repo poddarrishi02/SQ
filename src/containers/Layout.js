@@ -8,17 +8,15 @@ export default function Layout(props) {
   const AuthCtx = React.useContext(AuthContext);
   return (
     <div>
-      <div className={classes.container}>
-        <div className={classes.header}>
-            {AuthCtx.isLoggedIn ? <Navbar /> : null}
-        </div>
-        {props.children}
+      <div className={classes.header}>{AuthCtx.isLoggedIn ? <Navbar /> : null}</div>
+        <div style={{minHeight: "fit-content"}}>{props.children}</div>
+      <div>
+        {AuthCtx.isLoggedIn && (
+          <div className={classes.footer}>
+            {AuthCtx.isLoggedIn ? <Footer /> : null}
+          </div>
+        )}
       </div>
-      {AuthCtx.isLoggedIn && (
-        <div className={classes.footer}>
-          {AuthCtx.isLoggedIn ? <Footer /> : null}
-        </div>
-      )}
     </div>
   );
 }
