@@ -1,5 +1,5 @@
 .outer {
-    margin: 5vw;
+    margin: 8%;
     position: absolute;
     top: 0;
     left: 0;
@@ -21,6 +21,7 @@
 
 .modalheadrow {
     margin-top: -1vh;
+    margin-top: -0%;
     margin-bottom: 1vh;
 }
 

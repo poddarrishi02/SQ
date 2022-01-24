@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext({
   token: null,
@@ -10,11 +11,15 @@ export const AuthContext = createContext({
 const AuthContextProvider = (props) => {
   // Adding Persistance
   const localToken = localStorage.getItem("token");
+  // const navigate = useNavigate();
   const [token, setToken] = useState(localToken);
-  let isLoggedIn = !!token;
+  let isLoggedIn = token ? true : false;
 
   const login = async (email, password) => {
-    setToken("s343ad43a43s43d34sa43d43c4awsdceawfc");
+    let backendToken = "s343ad43a43s43d34sa43d43c4awsdceawfc";
+    setToken(backendToken);
+    localStorage.setItem("token", backendToken);
+    // navigate("/main");
   };
 
   const logout = () => {
