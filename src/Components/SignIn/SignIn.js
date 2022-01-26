@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./SignIn.module.css";
 import { ReactComponent as Back } from "./../../assets/Illustration.svg";
@@ -12,10 +12,17 @@ const clientId =
 function SignIn() {
   let navigate = useNavigate();
   const AuthCtx = useContext(AuthContext);
+  useEffect(() => {
+    if(AuthCtx.isLoggedIn){
+      navigate("/main");
+    }
+  }, [AuthCtx.isLoggedIn])
   const onLoginSuccess = async (res) => {
     console.log("Login Success:", res.profileObj);
     AuthCtx.login("dummyEmail", "dummyPassword");
-    navigate("/main");
+    // alert("NAVIGATINGG")
+    // navigate("/main");
+    // alert("NAVIGATed")
     // const link = "http://localhost:8000";
     // console.log(`${link}`);
     // await axios.post(`${link}/`, { res });

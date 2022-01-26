@@ -1,6 +1,8 @@
 .container {
+  height: 100%;
   --main-col: black;
   background-color: var(--main-col);
+  /* background-color: var(--main-col); */
   height: 100vh;
   display: flex;
   font-family: Mulish;

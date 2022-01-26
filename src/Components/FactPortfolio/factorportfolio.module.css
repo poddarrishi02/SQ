@@ -1,5 +1,5 @@
 .outer {
-    margin: 5vw;
+    margin: 8%;
     position: absolute;
     top: 0;
     left: 0;
@@ -21,6 +21,7 @@
 
 .modalheadrow {
     margin-top: -1vh;
+    margin-top: -0%;
     margin-bottom: 1vh;
 }
 
@@ -103,9 +104,10 @@
 
 .datepicker {
     margin-left: 5vw;
-    background: #E9ECEF;
+    
+    /* background: #E9ECEF; */
     /* border: 1px solid #555; */
-    color: #ADB5BD;
+    /* color: #ADB5BD; */
 }
 .datepicker .today{
     background: #ffcc00 !important;
@@ -165,7 +167,7 @@
 }
 
 .factorinput {
-    color: #ADB5BD;
+    accent-color: #2637B8;
 }
 
 .avbtn, .selectallbtn {
