@@ -21,7 +21,6 @@ function Optimiser() {
                 <h6 className={styles.navheading}>Home &gt; Optimizer</h6>
                 <h1 className={styles.heading}>Optimizer</h1>
                 <h5 className={styles.subheading}>Startup Framework gives you complete freedom over your creative process</h5>
-                <h4 className={styles.stepsheader}>4 easy steps to calculate your portfolio</h4>
                 <div className={styles.steps}>
                     <div className={styles.step}>
                         <div className={styles.leftmenu}>
@@ -38,7 +37,7 @@ function Optimiser() {
                                             <div style={{ "display": "flex" }}>
                                                 <input type="radio" name="index1" id={`stock${id}`} style={{ display: "none" }} />
                                                 <label for={`stock${id}`} className={styles.index}
-                                                    style={activeIndex1 == id ? { background: "#D9DDFF" } : null}
+                                                    style={activeIndex1 == id ? { background: "#D9DDFF", color: "#2637B8" } : null}
                                                     onClick={() => setactiveIndex1(id)}>
                                                     {x}
                                                 </label>
@@ -66,7 +65,7 @@ function Optimiser() {
                                         <div style={{ "display": "flex" }}>
                                             <input type="radio" name="index2" id={`choose${id}`} style={{ display: "none" }} />
                                             <label for={`choose${id}`} className={styles.index}
-                                                style={activeIndex2 == id ? { background: "#D9DDFF" } : null}
+                                                style={activeIndex2 == id ? { background: "#D9DDFF", color: "#2637B8" } : null}
                                                 onClick={() => setactiveIndex2(id)}>
                                                 {x}
                                             </label>
@@ -115,17 +114,17 @@ function Optimiser() {
                                 <div className={styles.num}>4</div>
                             </div>
                         </div>
-                        <div className={styles.content}>
+                        <div className={styles.content} style={{paddingBottom:"0px"}}>
                             <div className={styles.headrow}>
                                 <div className={styles.stepheading}>Choose factor constraint</div>
                                 <div className={styles.bracketed}>&nbsp;&nbsp;(seperated by comma)</div>
                             </div>
-                            <OptiSlider/>
-                            <Graphs />
 
+                            <OptiSlider />
                         </div>
                     </div>
                 </div>
+                <Graphs />
             </div >
         </div >
     )

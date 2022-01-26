@@ -11,6 +11,7 @@ import FactorPortfolio from "./Components/FactPortfolio/FactorPortfolio";
 import Optimiser from "./Components/Optimiser/Optimiser";
 import OptiSlider from "./Components/Optimiser/OptiSlider";
 import Graphs from "./Components/Optimiser/Graphs";
+import OptiSector from "./Components/OptiSector/OptiSector";
 function App() {
   return (
     <Router>
@@ -33,6 +34,7 @@ function App() {
             <Route path="/optimiser" element={<Optimiser />}></Route>
             <Route path="/slider" element={<OptiSlider />}></Route>
             <Route path="/graphs" element={<Graphs />}></Route>
+            <Route path="/optimisersector" element={<OptiSector/>}></Route>
           </Routes>
         </Layout>
       </div>
