@@ -35,3 +35,128 @@
     line-height: 20px;
     margin-top: 77px;
 }
+
+.screens, .screen, .headrow, .checkboxes {
+    display: flex;
+}
+
+.screens {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.heading2 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.screen, .checkboxes {
+    flex-direction: column;
+}
+
+.screen {
+    width: 540px;
+    /* margin-right: 110px; */
+    /* min-width: fit-content; */
+}
+
+.neg {
+    display: flex;
+    width: 270px;
+    height: 30px;
+    align-items: center;
+    padding: 3px 0px;
+}
+
+.checkboxes {
+    flex-wrap: wrap;
+    height: 260px;
+}
+
+.checkbox {
+    accent-color: #2637B8;
+    background-color: #ADB5BD;
+    height: 18px;
+    color: #2637B8;
+    width: 18px;
+}
+
+.label {
+    font-size: 16px;
+    line-height: 19px;
+    font-family: Roboto;
+    margin: 0px 6px;
+
+}
+
+.neg {
+    margin-bottom: 7px;
+}
+
+.clearbtn {
+    font-size: 12px;
+    text-align: right;
+    text-decoration-line: underline;
+    color: #0116CB;
+    cursor: pointer;
+}
+
+.runbtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 14px;
+    background: #0116CB;
+    border: 1px solid #0116CB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 99px;
+    height: 37px;
+    margin-left: auto;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+.runtxt {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin: 0px 4px;
+}
+.table {
+    box-sizing: border-box;
+    border-collapse: collapse;
+    border: 1px solid #E9ECEF;
+    width: 799.25px;
+    margin-top: 17.64px;
+    width: 100%;
+}
+.table thead {
+    width: 799.25px;
+    height: 49px;
+    background: #D9DDFF;
+    color: #495057;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+}
+.table tbody {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.table tr {
+    height: 49px;
+}
+.table tr:nth-child(odd) {
+    background: #E9ECEF;
+}
+.table th{
+    text-align: left;
+}
+.outer{
+    padding-bottom: 65px;
+}

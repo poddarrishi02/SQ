@@ -13,7 +13,8 @@ export default function Layout(props) {
       <div>
         {AuthCtx.isLoggedIn && (
           <div className={classes.footer}>
-            {AuthCtx.isLoggedIn ? <Footer /> : null}
+            {/* {AuthCtx.isLoggedIn ? <Footer /> : null} */}
+            {AuthCtx.isLoggedIn ? null : null}
           </div>
         )}
       </div>
