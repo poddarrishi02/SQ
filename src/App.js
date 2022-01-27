@@ -25,8 +25,8 @@ function App() {
             <Route exact path="/optimiser" element={<ProtectedRoute><Optimiser /></ProtectedRoute>}></Route>
             <Route exact path="/slider" element={<ProtectedRoute><OptiSlider /></ProtectedRoute>}></Route>
             <Route exact path="/graphs" element={<ProtectedRoute><Graphs /></ProtectedRoute>}></Route>
-            <Route exact path="/" element={<ProtectedRoute><SignIn /></ProtectedRoute>}></Route>
             <Route path="/optimisersector" element={<ProtectedRoute><OptiSector/></ProtectedRoute>}></Route>
+            <Route exact path="/" element={<SignIn />}></Route>
           </Routes>
         </Layout>
       </div>
