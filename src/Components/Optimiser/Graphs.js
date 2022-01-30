@@ -133,7 +133,6 @@ function Graphs() {
             </div>
             {activeMenu == 0 &&
                 <div>
-                    <div>
                         <table className={styles.atable}>
                             <thead>
                                 <th></th>
@@ -172,8 +171,7 @@ function Graphs() {
                                 })}
                             </tbody>
                         </table>
-                        <div className={styles.chartContainer}><PieChart /></div>
-                    </div>
+                        <div className={styles.chartContainer}><PieChart/></div>
                 </div>
             }
             {activeMenu === 1 && <div>

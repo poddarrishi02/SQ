@@ -1,81 +1,86 @@
 .menu {
-    display: flex;
-    margin: auto;
-    width: fit-content;
+  display: flex;
+  margin: auto;
+  width: fit-content;
 }
 
-.menuitem, .menuactive {
-    margin-left: 19.5px;
-    margin-right: 19.5px;
-    width: fit-content;
-    text-align: center;
-    font-size: 16px;
-    line-height: 20px;
-    color: #495057;
-    margin: 0px 39px;
-    cursor: pointer;
+.menuitem,
+.menuactive {
+  margin-left: 19.5px;
+  margin-right: 19.5px;
+  width: fit-content;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  color: #495057;
+  margin: 0px 39px;
+  cursor: pointer;
 }
 
 .menuactive {
-    font-weight: bold;
-    text-decoration-line: underline;
-    color: #0116CB;
+  font-weight: bold;
+  text-decoration-line: underline;
+  color: #0116cb;
 }
 
-.atable, .btable {
-    box-sizing: border-box;
-    border-collapse: collapse;
-    border: 1px solid #E9ECEF;
-    width: 799.25px;
-    margin-top: 17.64px;
+.atable,
+.btable {
+  box-sizing: border-box;
+  border-collapse: collapse;
+  border: 1px solid #e9ecef;
+  width: 799.25px;
+  margin-top: 17.64px;
 }
 
-.atable thead, .btable thead {
-    width: 799.25px;
-    height: 49px;
-    background: #D9DDFF;
-    color: #495057;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 18px;
+.atable thead,
+.btable thead {
+  width: 799.25px;
+  height: 49px;
+  background: #d9ddff;
+  color: #495057;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
 }
 
-.atable tbody, .btable tbody {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
+.atable tbody,
+.btable tbody {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
 }
 
-.atable tr, .btable tr {
-    height: 49px;
+.atable tr,
+.btable tr {
+  height: 49px;
 }
 
 .midrow {
-    background: #A8E2A2;
+  background: #a8e2a2;
 }
 
 .smallrow {
-    background: #92E0FF;
+  background: #92e0ff;
 }
 
 .largerow {
-    background: #EAF8BF;
+  background: #eaf8bf;
 }
 
 .graphouter {
-    margin-bottom: 115px;
+  margin-bottom: 115px;
 }
 
 .btable thead {
-    height: 71px;
+  height: 71px;
 }
 
 .btable tr:nth-child(odd) {
-    background: #E9ECEF;
+  background: #e9ecef;
 }
 
 .btable {
-    width: 698.69px;
+  width: 698.69px;
 }
 
 /* .btable thead th div{
@@ -83,18 +88,30 @@
     text-align: right;
     margin-right: 66.47px;
 } */
-.col2, .col3 {
-    text-align: right;
+.col2,
+.col3 {
+  text-align: right;
 }
 
-.col2head, .col3head {
-    width: 127px;
-    text-align: right;
+.col2head,
+.col3head {
+  width: 127px;
+  text-align: right;
 }
 
-.col3head,.col3 {
-    padding-right: 35px;
+.col3head,
+.col3 {
+  padding-right: 35px;
 }
-.col2head,.col2 {
-    padding-right: 66.47px;
+.col2head,
+.col2 {
+  padding-right: 66.47px;
+}
+
+/* dougnut chart styles */
+.chartContainer {
+  position: relative;
+  height: 30%;
+  width: 30%;
+  float: right;
 }
