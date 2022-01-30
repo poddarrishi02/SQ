@@ -2,3 +2,11 @@ Footer positioning
 checkbox unchecked bg
 centre alignment in module 3
 restore colours of first table in module 3 to gray and white
+
+
+Module 3: Optimiser: Change color of charts, add alignment for charts, add checkboxes. Add Step 3 -> Mix/Max Stock weight.
+ File Upload - Finish this first
+
+Module 4: Need to get Data so that we can render the table - Ashish will Ask
+
+Module 5: Need the data to render tables and sorting of tables - Ask for data
