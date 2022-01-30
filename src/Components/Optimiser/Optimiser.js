@@ -6,6 +6,8 @@ import { RiCloseLine } from "react-icons/ri";
 import "react-icons/";
 import Graphs from "./Graphs";
 import OptiSlider from "./OptiSlider";
+import FileUpload from '../FileUpload/Upload';
+
 function Optimiser() {
   const [activeIndex1, setactiveIndex1] = useState(0);
   const [activeIndex2, setactiveIndex2] = useState(0);
@@ -46,7 +48,7 @@ function Optimiser() {
                         for={`stock${id}`}
                         className={styles.index}
                         style={
-                          activeIndex1 == id
+                          activeIndex1 === id
                             ? { background: "#D9DDFF", color: "#2637B8" }
                             : null
                         }
@@ -56,8 +58,9 @@ function Optimiser() {
                       </label>
                     </div>
                   );
-                })}
+                })} 
               </>
+              <br /> <FileUpload />
             </div>
           </div>
         </div>
