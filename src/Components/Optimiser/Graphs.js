@@ -132,7 +132,7 @@ function Graphs() {
                 })}
             </div>
             {activeMenu == 0 &&
-                <div>
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width:"100%"}}>
                         <table className={styles.atable}>
                             <thead>
                                 <th></th>

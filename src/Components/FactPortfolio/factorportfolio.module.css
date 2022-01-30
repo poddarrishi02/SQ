@@ -1,8 +1,9 @@
 .outer {
-    margin: 8%;
+    margin: 5vw;
     position: absolute;
     top: 0;
     left: 0;
+    width: 90vw;
 }
 
 .modal {
