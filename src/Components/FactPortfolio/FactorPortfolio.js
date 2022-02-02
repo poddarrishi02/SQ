@@ -1,10 +1,10 @@
-import { React, useState, useRef } from "react";
+import { React, useState, useRef, useEffect } from "react";
 import styles from "./factorportfolio.module.css";
 import data from "../../assets/response.json";
 // import DatePicker from '@mui/lab/DatePicker';
 import { RiCloseLine } from "react-icons/ri";
 import { DatePicker } from "react-rainbow-components";
-
+import factorData from './factport_response.json';
 const containerStyles = {
   maxWidth: 400,
   marginBottom: "10px"
@@ -12,7 +12,11 @@ const containerStyles = {
 
 function FactorPortfolio() {
   const [portfolioDate, setPortfolioDate] = useState({ date: new Date() });
+  const [data, setData] = useState();
 
+  useEffect(() => {
+    fetch()
+  }, [])
   function withCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -39,15 +43,16 @@ function FactorPortfolio() {
     false,
   ]);
   console.log(factorsBool);
-  const [factors, setfactors] = useState([
-    "Momentum",
-    "Liquidity",
-    "Size",
-    "Value",
-    "Volatilty",
-    "Quality",
-    "Growth",
-  ]);
+  const factors = Object.keys(factorData.data[0]).map(fac => fac.toLocaleLowerCase);
+  // const [factors, setfactors] = useState([
+  //   "Momentum",
+  //   "Liquidity",
+  //   "Size",
+  //   "Value",
+  //   "Volatilty",
+  //   "Quality",
+  //   "Growth",
+  // ]);
   //Liquidity  Value  Volatilty  Quality
   const factorArr = [
     {
@@ -305,23 +310,6 @@ function FactorPortfolio() {
                     className={styles.datepicker}
                   />
                 </div>
-
-                {/* 
-                <input
-                  type="date"
-                  id="seldate"
-                  name="seldate"
-                  className={styles.datepicker}
-                /> */}
-                {/* <DatePicker
-                                    views={['day', 'month', 'year']}
-                                    label="Invert the order of views"
-                                    value={value}
-                                    onChange={(newValue) => {
-                                        setValue(newValue);
-                                    }}
-                                    renderInput={(params) => <TextField {...params} helperText={null} />}
-                                /> */}
               </div>
             </div>
           </div>
