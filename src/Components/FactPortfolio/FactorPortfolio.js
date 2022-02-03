@@ -427,7 +427,7 @@ function FactorPortfolio() {
                   <table className={styles.table}>
                     <thead style={{ display: "block" }}>
                       <tr className={styles.trhead}>
-                        {/* <th className={styles.col1head}></th> */}
+                        <th className={styles.col1head}></th>
                         {factorsBool.map((x, index) => {
                           return (
                             <>
@@ -445,7 +445,7 @@ function FactorPortfolio() {
                           var temp=Object.keys(data[x])
                           return(
                             <tr >
-                              {/* <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{x}</td> */}
+                              <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{x}</td>
                               {factorsBool[0]&&<td className={styles.col2}>{data[x].momentum}</td>}
                               {factorsBool[1]&&<td className={styles.col2}>{data[x].liquidity}</td>}
                               {factorsBool[2]&&<td className={styles.col2}>{data[x].size}</td>}
