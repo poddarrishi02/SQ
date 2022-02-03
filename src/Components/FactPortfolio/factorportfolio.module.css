@@ -1,8 +1,9 @@
 .outer {
-    margin: 8%;
+    margin: 5vw;
     position: absolute;
     top: 0;
     left: 0;
+    width: 90vw;
 }
 
 .modal {
@@ -174,17 +175,26 @@
     accent-color: #2637B8;
 }
 
-.avbtn, .selectallbtn {
-    color: #2637B8;
-    text-decoration: underline;
+.selectallbtn {
     cursor: pointer;
+    font-size: 12px;
+    line-height: 161.1%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #212529;
 }
 
 .avbtn {
-    margin-bottom: 1vh;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    text-decoration-line: underline;
+    color: #2637B8;
+    margin-bottom: 4px;
+    margin-top: 2px;
 }
 
 .selectallbtn {
@@ -217,27 +227,20 @@
 }
 
 .nonhead {
-    max-height: 200px;
+    max-height: 147px;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     display: block;
-}
-.col1head{
-    padding-left: 31.65px;
-    width: 343px;
 }
 
 .table {
     box-sizing: border-box;
     border-collapse: collapse;
     border: 1px solid #E9ECEF;
-    width: 799.25px;
-    margin-top: 17.64px;
 }
 
 .table thead {
-    width: 799.25px;
     height: 49px;
     background: #D9DDFF;
     color: #495057;
@@ -256,8 +259,12 @@
     height: 49px;
 }
 
-.table,.tablediv {
+.table, .tablediv {
     max-width: 698.69px;
+}
+
+.table {
+    /* padding-right: 200px; */
 }
 
 .table tr:nth-child(even) {
@@ -280,25 +287,39 @@
 
 .col2, .col3 {
     /* min-width: fit-content; */
-    /* text-align: right; */
-}
-
-.col2head, .col3head {
-    min-width: 127px;
     text-align: right;
 }
 
-.col3head, .col3 {
-    padding-right: 35px;
+.col2head, .col3head {
+    /* min-width: 127px; */
+    text-align: right;
 }
 
-.col2head, .col2 {
-    padding-right: 66.47px;
+.col3head {
+    padding-right: 30.61px;
+    width: 167px;
 }
 
-.col1 {
-    padding-left: "31.65px";
-    width: "343px";
+.col3 {
+    padding-right: 20.61px;
+    width: 167px;
+    overflow-x: hidden;
+}
+
+.col2head {
+    padding-right: 71.52px;
+    width: 167px;
+}
+
+.col2 {
+    padding-right: 71.52px;
+    width: 167px;
+    overflow-x: hidden;
+}
+
+.col1, .col1head {
+    padding-left: 30px;
+    min-width: 300px;
     text-align: left;
     font-weight: 600;
 }

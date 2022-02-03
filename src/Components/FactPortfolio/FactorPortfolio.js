@@ -24,7 +24,7 @@ function FactorPortfolio() {
   const indices = ["NIFTY 200", "NIFTY 500", "BSE 100", "BSE 200", "BSE 500"];
   const [factorsBool, setfactorsBool] = useState([
     false,
-    true,
+    false,
     false,
     false,
     false,
@@ -435,54 +435,30 @@ function FactorPortfolio() {
                             </>
                           )
                         })}
-
                         <th className={styles.col3head}>Average</th>
                       </tr>
                     </thead>
                     <tbody className={styles.nonhead}>
                       {
-                        table1keys.map((x,index)=>{
-                          var temp=Object.keys(data[x])
-                          return(
+                        table1keys.map((x, index) => {
+                          var temp = Object.keys(data[x])
+                          return (
                             <tr >
-                              <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{x}</td>
-                              {factorsBool[0]&&<td className={styles.col2}>{data[x].momentum}</td>}
-                              {factorsBool[1]&&<td className={styles.col2}>{data[x].liquidity}</td>}
-                              {factorsBool[2]&&<td className={styles.col2}>{data[x].size}</td>}
-                              {factorsBool[3]&&<td className={styles.col2}>{data[x].value}</td>}
-                              {factorsBool[4]&&<td className={styles.col2}>{data[x].volatility}</td>}
-                              {factorsBool[5]&&<td className={styles.col2}>{data[x].quality}</td>}
-                              {factorsBool[6]&&<td className={styles.col2}>{data[x].dividend}</td>}
+                              <td className={styles.col1head}>{x}</td>
+                              {factorsBool[0] && <td className={styles.col2}>{data[x].momentum}</td>}
+                              {factorsBool[1] && <td className={styles.col2}>{data[x].liquidity}</td>}
+                              {factorsBool[2] && <td className={styles.col2}>{data[x].size}</td>}
+                              {factorsBool[3] && <td className={styles.col2}>{data[x].value}</td>}
+                              {factorsBool[4] && <td className={styles.col2}>{data[x].volatility}</td>}
+                              {factorsBool[5] && <td className={styles.col2}>{data[x].quality}</td>}
+                              {factorsBool[6] && <td className={styles.col2}>{data[x].dividend}</td>}
                               <td className={styles.col3}>
                                 {data[x].average}
-                            </td>
+                              </td>
                             </tr>
                           )
                         })
                       }
-                      {/* {data.map((x,index) => {
-                        return (
-                          <tr>
-                            <td
-                              style={{
-                                textAlign: "left",
-                                width: "5vw",
-                                minWidth: "0",
-                                paddingLeft: "2vw",
-                                background: "inherit",
-                              }}
-                            >
-                              {index}
-                            </td>
-                            {factorsBool[index] && <td>{x[factors2[index]]}</td>}
-                            <td style={{ paddingRight: "0.5vw" }}>
-                              <section style={{ marginRight: "2vw" }}>
-                                {x.average}
-                              </section>
-                            </td>
-                          </tr>
-                        );
-                      })} */}
                     </tbody>
                   </table>
                 </div>
@@ -512,59 +488,48 @@ function FactorPortfolio() {
                 type="text"
                 placeholder="tcs,infy"
               ></input>
-              {/* <div className={styles.factortable}>
+              <div className={styles.factortable}>
                 <div className={styles.avbtn}>Average</div>
                 <div className={styles.tablediv}>
                   <table className={styles.table}>
                     <thead style={{ display: "block" }}>
                       <tr className={styles.trhead}>
-                        <th
-                          style={{
-                            minWidth: "0",
-                            width: "5vw",
-                            paddingLeft: "2vw",
-                          }}
-                        >
-                          Name
-                        </th>
-                        {factorsBool[1] && <th>Liquidity</th>}
-                        {factorsBool[3] && <th>Value</th>}
-                        {factorsBool[4] && <th>Volatility</th>}
-                        {factorsBool[5] && <th>Quality</th>}
-                        <th style={{ paddingRight: "4vw" }}>Average</th>
+                        <th className={styles.col1head}></th>
+                        {factorsBool.map((x, index) => {
+                          return (
+                            <>
+                              {x && <th className={styles.col2head}>{factors[index]}</th>}
+                            </>
+                          )
+                        })}
+                        <th className={styles.col3head}>Average</th>
                       </tr>
                     </thead>
                     <tbody className={styles.nonhead}>
-                      {data.map((x) => {
-                        return (
-                          <tr>
-                            <td
-                              style={{
-                                textAlign: "left",
-                                width: "5vw",
-                                minWidth: "0",
-                                paddingLeft: "2vw",
-                                background: "inherit",
-                              }}
-                            >
-                              {data.Name[x]}
-                            </td>
-                            {factorsBool[1] && <td>{data.Liquidity[x]}</td>}
-                            {factorsBool[3] && <td>{data.Value[x]}</td>}
-                            {factorsBool[4] && <td>{data.Volatility[x]}</td>}
-                            {factorsBool[5] && <td>{data.Quality[x]}</td>}
-                            <td style={{ paddingRight: "1vw" }}>
-                              <section style={{ marginRight: "2vw" }}>
-                                Dummy Av
-                              </section>
-                            </td>
-                          </tr>
-                        );
-                      })}
+                      {
+                        table1keys.map((x, index) => {
+                          var temp = Object.keys(data[x])
+                          return (
+                            <tr >
+                              <td className={styles.col1head}>{x}</td>
+                              {factorsBool[0] && <td className={styles.col2}>{data[x].momentum}</td>}
+                              {factorsBool[1] && <td className={styles.col2}>{data[x].liquidity}</td>}
+                              {factorsBool[2] && <td className={styles.col2}>{data[x].size}</td>}
+                              {factorsBool[3] && <td className={styles.col2}>{data[x].value}</td>}
+                              {factorsBool[4] && <td className={styles.col2}>{data[x].volatility}</td>}
+                              {factorsBool[5] && <td className={styles.col2}>{data[x].quality}</td>}
+                              {factorsBool[6] && <td className={styles.col2}>{data[x].dividend}</td>}
+                              <td className={styles.col3}>
+                                {data[x].average}
+                              </td>
+                            </tr>
+                          )
+                        })
+                      }
                     </tbody>
                   </table>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -574,42 +539,3 @@ function FactorPortfolio() {
 }
 
 export default FactorPortfolio;
-{
-  /*                             <div className={styles.inputboxes}>
-                                    <div className={styles.line1}>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="momentum" id="momentum" />
-                                            <label for="momentum" >Momentum</label>
-                                        </div>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="liquidity" id="liquidity" />
-                                            <label for="liquidity" >Liquidity</label>
-                                        </div>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="size" id="size" />
-                                            <label for="size" >Size</label>
-                                        </div>
-                                    </div>
-                                    <div className={styles.line2}>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="value" id="value" />
-                                            <label for="value" >Value</label>
-                                        </div>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="volatility" id="volatility" />
-                                            <label for="volatility" >Volatility</label>
-                                        </div>
-                                        <div className={styles.viewallbtn}>Select All</div>
-                                    </div>
-                                    <div className={styles.line3}>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="quality" id="quality" />
-                                            <label for="quality" >Quality</label>
-                                        </div>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="growth" id="growth" />
-                                            <label for="growth" >Growth</label>
-                                        </div>
-                                    </div>
-                                </div> */
-}

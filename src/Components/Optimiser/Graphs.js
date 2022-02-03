@@ -1,5 +1,10 @@
 import { React, useState } from 'react';
+
 import styles from './graphs.module.css'
+
+import PieChart from "../../Components/Charts/PieChart"
+import HorizontalChart from "../../Components/Charts/HorizontalChart"
+
 function Graphs() {
     const menu = ["Top 10 holdings", "Factor Analysis", "Stock Sector ", "Returns"]
     const [activeMenu, setactiveMenu] = useState(0);
@@ -127,8 +132,7 @@ function Graphs() {
                 })}
             </div>
             {activeMenu == 0 &&
-                <div>
-                    <div>
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width:"100%"}}>
                         <table className={styles.atable}>
                             <thead>
                                 <th></th>
@@ -137,6 +141,8 @@ function Graphs() {
                                 <th>Price</th>
                             </thead>
                             <tbody>
+                                {/* First Table */}
+                                {/* Midcap, green color */}
                                 {midcap.map((x, id) => {
                                     return (<tr className={styles.midrow}>
                                         <td style={{ paddingLeft: "53px", width: "270px" }}>{x.name}</td>
@@ -145,6 +151,7 @@ function Graphs() {
                                         <td style={{ textAlign: "center" }}>{x.price}</td>
                                     </tr>)
                                 })}
+                                {/* Small cap blue color */}
                                 {smallcap.map((x, id) => {
                                     return (<tr className={styles.smallrow}>
                                         <td style={{ paddingLeft: "53px", width: "270px" }}>{x.name}</td>
@@ -153,6 +160,7 @@ function Graphs() {
                                         <td style={{ textAlign: "center" }}>{x.price}</td>
                                     </tr>)
                                 })}
+                                {/* LargeCap, Yellow */}
                                 {largecap.map((x, id) => {
                                     return (<tr className={styles.largerow}>
                                         <td style={{ paddingLeft: "53px", width: "270px" }}>{x.name}</td>
@@ -163,11 +171,13 @@ function Graphs() {
                                 })}
                             </tbody>
                         </table>
-                    </div>
+                        <div className={styles.chartContainer}><PieChart/></div>
                 </div>
             }
-            {activeMenu == 1 && <div></div>}
-            {activeMenu == 2 && <div>
+            {activeMenu === 1 && <div>
+                <HorizontalChart />
+                </div>}
+            {activeMenu === 2 && <div>
                 <div>
                     <table className={styles.btable}>
                         <thead>
@@ -185,6 +195,8 @@ function Graphs() {
                             })}
                         </tbody>
                     </table>
+                    <div className={styles.chartContainer}><PieChart /></div>
+
                 </div>
             </div>}
             {activeMenu == 3 &&
