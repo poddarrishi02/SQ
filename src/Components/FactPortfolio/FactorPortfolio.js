@@ -1,19 +1,29 @@
-import { React, useState, useRef } from "react";
+import { React, useState, useRef,useEffect } from "react";
 import styles from "./factorportfolio.module.css";
-import data from "./factport_response.json";
+import importData from "./factport_response.json";
 import { RiCloseLine } from "react-icons/ri";
 import { DatePicker } from "react-rainbow-components";
-
+import Fuse from 'react-fuzzy'
+ 
 const containerStyles = {
   maxWidth: 400,
   marginBottom: "10px"
 };
-
+ 
 function FactorPortfolio() {
   const [portfolioDate, setPortfolioDate] = useState({ date: new Date() });
-
+  const [data, setData] = useState(importData.data);
+  console.log(data)
   const [showModal, setShowModal] = useState(false);
   const [activeIndex, setactiveIndex] = useState(0);
+  useEffect(() => {
+    let tempData = importData.data.map(d => {
+      return {...d, name: Object.keys(d)[0]}
+    })
+    setData(tempData);
+  }, [])
+
+
   const ref = useRef(null);
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
@@ -168,7 +178,7 @@ function FactorPortfolio() {
                   ? 6
                   : -1;
   };
-  const table1keys = Object.keys(data)
+  // const table1keys = Object.keys(data)
   // console.log(table1keys)
   return (
     <div className={styles.outermost}>
@@ -293,7 +303,7 @@ function FactorPortfolio() {
             <div className={styles.content}>
               <div className={styles.headrow}>
                 <div className={styles.stepheading}>Select Date </div>
-
+ 
                 <div
                   className="rainbow-align-content_center rainbow-m-vertical_small rainbow-p-horizontal_small rainbow-m_auto"
                   style={containerStyles}
@@ -309,7 +319,7 @@ function FactorPortfolio() {
                     className={styles.datepicker}
                   />
                 </div>
-
+ 
                 {/* 
                 <input
                   type="date"
@@ -440,21 +450,20 @@ function FactorPortfolio() {
                     </thead>
                     <tbody className={styles.nonhead}>
                       {
-                        table1keys.map((x, index) => {
-                          var temp = Object.keys(data[x])
-                          return (
+                        data?.map((x,index)=>{
+                          return(
                             <tr >
-                              <td className={styles.col1head}>{x}</td>
-                              {factorsBool[0] && <td className={styles.col2}>{data[x].momentum}</td>}
-                              {factorsBool[1] && <td className={styles.col2}>{data[x].liquidity}</td>}
-                              {factorsBool[2] && <td className={styles.col2}>{data[x].size}</td>}
-                              {factorsBool[3] && <td className={styles.col2}>{data[x].value}</td>}
-                              {factorsBool[4] && <td className={styles.col2}>{data[x].volatility}</td>}
-                              {factorsBool[5] && <td className={styles.col2}>{data[x].quality}</td>}
-                              {factorsBool[6] && <td className={styles.col2}>{data[x].dividend}</td>}
+                              <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{Object.keys(x)[0]}</td>
+                              {factorsBool[0]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].momentum}</td>}
+                              {factorsBool[1]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].liquidity}</td>}
+                              {factorsBool[2]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].size}</td>}
+                              {factorsBool[3]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].value}</td>}
+                              {factorsBool[4]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].volatility}</td>}
+                              {factorsBool[5]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].quality}</td>}
+                              {factorsBool[6]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].dividend}</td>}
                               <td className={styles.col3}>
-                                {data[x].average}
-                              </td>
+                                {x[Object.keys(x)[0]].average}
+                            </td>
                             </tr>
                           )
                         })
@@ -507,21 +516,20 @@ function FactorPortfolio() {
                     </thead>
                     <tbody className={styles.nonhead}>
                       {
-                        table1keys.map((x, index) => {
-                          var temp = Object.keys(data[x])
+                        data?.map((x, index) => {
                           return (
                             <tr >
-                              <td className={styles.col1head}>{x}</td>
-                              {factorsBool[0] && <td className={styles.col2}>{data[x].momentum}</td>}
-                              {factorsBool[1] && <td className={styles.col2}>{data[x].liquidity}</td>}
-                              {factorsBool[2] && <td className={styles.col2}>{data[x].size}</td>}
-                              {factorsBool[3] && <td className={styles.col2}>{data[x].value}</td>}
-                              {factorsBool[4] && <td className={styles.col2}>{data[x].volatility}</td>}
-                              {factorsBool[5] && <td className={styles.col2}>{data[x].quality}</td>}
-                              {factorsBool[6] && <td className={styles.col2}>{data[x].dividend}</td>}
+                              <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{Object.keys(x)[0]}</td>
+                              {factorsBool[0]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].momentum}</td>}
+                              {factorsBool[1]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].liquidity}</td>}
+                              {factorsBool[2]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].size}</td>}
+                              {factorsBool[3]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].value}</td>}
+                              {factorsBool[4]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].volatility}</td>}
+                              {factorsBool[5]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].quality}</td>}
+                              {factorsBool[6]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].dividend}</td>}
                               <td className={styles.col3}>
-                                {data[x].average}
-                              </td>
+                                {x[Object.keys(x)[0]].average}
+                            </td>
                             </tr>
                           )
                         })
@@ -537,5 +545,8 @@ function FactorPortfolio() {
     </div>
   );
 }
-
+ 
 export default FactorPortfolio;
+
+
+

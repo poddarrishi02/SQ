@@ -3,10 +3,9 @@ centre alignment in module 3
 restore colours of first table in module 3 to gray and white
 
 
-
-
-
 Ashish:
+File Upload - Finish this first, partially done a bit of positioning is left
+Module 3: add alignment for charts, add checkboxes. Add Step 3 -> Mix/Max Stock weight.
 Factor Portfolio mapping with original Data, and final adjustments
 Optimiser: Change color of charts
 Footer positioning
@@ -16,5 +15,9 @@ Module 4: Need to get Data so that we can render the table - Ashish will Ask -> 
 Module 5: Need the data to render tables and sorting of tables - Ask for data
 
 Rishi:
-Module 3: add alignment for charts, add checkboxes. Add Step 3 -> Mix/Max Stock weight.
-File Upload - Finish this first, partially done a bit of positioning is left
+
+
+Optimiser Data and tables
+Scale for bar graph
+Stock Sector table data
+Returns

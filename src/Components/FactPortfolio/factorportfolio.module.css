@@ -3,7 +3,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 90vw;
 }
 
 .modal {
@@ -105,7 +104,6 @@
 
 .datepicker {
     margin-left: 5vw;
-
     /* background: #E9ECEF; */
     /* border: 1px solid #555; */
     /* color: #ADB5BD; */
@@ -240,15 +238,25 @@
     border: 1px solid #E9ECEF;
 }
 
+.table tr:nth-child(odd) {
+    background: #E9ECEF;
+}
+
+.nonhead tr:nth-child(even) {
+    background: #fff;
+}
+
 .table thead {
     height: 49px;
-    background: #D9DDFF;
+    background: #D9DDFF !important;
     color: #495057;
     font-weight: bold;
     font-size: 14px;
     line-height: 18px;
 }
-
+.table th{
+    background: #D9DDFF !important;
+}
 .table tbody {
     /* font-weight: 600; */
     font-size: 14px;
@@ -267,12 +275,18 @@
     /* padding-right: 200px; */
 }
 
-.table tr:nth-child(even) {
-    background: #E9ECEF;
+.table tbody {
+    /* font-weight: 600; */
+    font-size: 14px;
+    line-height: 18px;
 }
 
-.nonhead tr:nth-child(odd) {
-    background: #fff;
+.table tr {
+    height: 49px;
+}
+
+.table, .tablediv {
+    max-width: 698.69px;
 }
 
 .trhead {
