@@ -1,28 +1,29 @@
 import { React, useState, useRef, useEffect } from "react";
 import styles from "./factorportfolio.module.css";
-import data from "../../assets/response.json";
-// import DatePicker from '@mui/lab/DatePicker';
+import importData from "./factport_response.json";
 import { RiCloseLine } from "react-icons/ri";
 import { DatePicker } from "react-rainbow-components";
-import factorData from './factport_response.json';
+import Fuse from 'react-fuzzy'
+ 
 const containerStyles = {
   maxWidth: 400,
   marginBottom: "10px"
 };
-
+ 
 function FactorPortfolio() {
   const [portfolioDate, setPortfolioDate] = useState({ date: new Date() });
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    fetch()
-  }, [])
-  function withCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  const nm = "Name";
+  const [data, setData] = useState(importData.data);
+  console.log(data)
   const [showModal, setShowModal] = useState(false);
   const [activeIndex, setactiveIndex] = useState(0);
+  useEffect(() => {
+    let tempData = importData.data.map(d => {
+      return {...d, name: Object.keys(d)[0]}
+    })
+    setData(tempData);
+  }, [])
+
+
   const ref = useRef(null);
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
@@ -30,8 +31,6 @@ function FactorPortfolio() {
   const scroll2 = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
-  const table1Indices = [0, 1, 2, 3, 4, 5, 10];
-  const table2Indices = [0, 2, 5];
   const indices = ["NIFTY 200", "NIFTY 500", "BSE 100", "BSE 200", "BSE 500"];
   const [factorsBool, setfactorsBool] = useState([
     false,
@@ -42,17 +41,25 @@ function FactorPortfolio() {
     false,
     false,
   ]);
-  console.log(factorsBool);
-  const factors = Object.keys(factorData.data[0]).map(fac => fac.toLocaleLowerCase);
-  // const [factors, setfactors] = useState([
-  //   "Momentum",
-  //   "Liquidity",
-  //   "Size",
-  //   "Value",
-  //   "Volatilty",
-  //   "Quality",
-  //   "Growth",
-  // ]);
+  // console.log(factorsBool);
+  const [factors, setfactors] = useState([
+    "Momentum",
+    "Liquidity",
+    "Size",
+    "Value",
+    "Volatilty",
+    "Quality",
+    "Growth",
+  ]);
+  const factors2 = [
+    "momentum",
+    "liquidity",
+    "size",
+    "value",
+    "volatilty",
+    "quality",
+    "growth",
+  ];
   //Liquidity  Value  Volatilty  Quality
   const factorArr = [
     {
@@ -158,19 +165,21 @@ function FactorPortfolio() {
     return x === "Momentum"
       ? 0
       : x === "Liquidity"
-      ? 1
-      : x === "Size"
-      ? 2
-      : x === "Value"
-      ? 3
-      : x === "Volatilty"
-      ? 4
-      : x === "Quality"
-      ? 5
-      : x === "Growth"
-      ? 6
-      : -1;
+        ? 1
+        : x === "Size"
+          ? 2
+          : x === "Value"
+            ? 3
+            : x === "Volatilty"
+              ? 4
+              : x === "Quality"
+                ? 5
+                : x === "Growth"
+                  ? 6
+                  : -1;
   };
+  // const table1keys = Object.keys(data)
+  // console.log(table1keys)
   return (
     <div className={styles.outermost}>
       {showModal && (
@@ -294,7 +303,7 @@ function FactorPortfolio() {
             <div className={styles.content}>
               <div className={styles.headrow}>
                 <div className={styles.stepheading}>Select Date </div>
-
+ 
                 <div
                   className="rainbow-align-content_center rainbow-m-vertical_small rainbow-p-horizontal_small rainbow-m_auto"
                   style={containerStyles}
@@ -310,6 +319,23 @@ function FactorPortfolio() {
                     className={styles.datepicker}
                   />
                 </div>
+ 
+                {/* 
+                <input
+                  type="date"
+                  id="seldate"
+                  name="seldate"
+                  className={styles.datepicker}
+                /> */}
+                {/* <DatePicker
+                                    views={['day', 'month', 'year']}
+                                    label="Invert the order of views"
+                                    value={value}
+                                    onChange={(newValue) => {
+                                        setValue(newValue);
+                                    }}
+                                    renderInput={(params) => <TextField {...params} helperText={null} />}
+                                /> */}
               </div>
             </div>
           </div>
@@ -411,49 +437,38 @@ function FactorPortfolio() {
                   <table className={styles.table}>
                     <thead style={{ display: "block" }}>
                       <tr className={styles.trhead}>
-                        <th
-                          style={{
-                            minWidth: "0",
-                            width: "5vw",
-                            paddingLeft: "2vw",
-                          }}
-                        >
-                          Name
-                        </th>
-                        {factorsBool[1] && <th>Liquidity</th>}
-                        {factorsBool[3] && <th>Value</th>}
-                        {factorsBool[4] && <th>Volatility</th>}
-                        {factorsBool[5] && <th>Quality</th>}
-                        <th style={{ paddingRight: "4vw" }}>Average</th>
+                        <th className={styles.col1head}></th>
+                        {factorsBool.map((x, index) => {
+                          return (
+                            <>
+                              {/* {x && <th className={styles.col2head}>{factors[index]}</th>} */}
+                            </>
+                          )
+                        })}
+ 
+                        <th className={styles.col3head}>Average</th>
                       </tr>
                     </thead>
                     <tbody className={styles.nonhead}>
-                      {table1Indices.map((x) => {
-                        return (
-                          <tr>
-                            <td
-                              style={{
-                                textAlign: "left",
-                                width: "5vw",
-                                minWidth: "0",
-                                paddingLeft: "2vw",
-                                background: "inherit",
-                              }}
-                            >
-                              {data.Name[x]}
+                      {
+                        data?.map((x,index)=>{
+                          return(
+                            <tr >
+                              <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{Object.keys(x)[0]}</td>
+                              {factorsBool[0]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].momentum}</td>}
+                              {factorsBool[1]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].liquidity}</td>}
+                              {factorsBool[2]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].size}</td>}
+                              {factorsBool[3]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].value}</td>}
+                              {factorsBool[4]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].volatility}</td>}
+                              {factorsBool[5]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].quality}</td>}
+                              {factorsBool[6]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].dividend}</td>}
+                              <td className={styles.col3}>
+                                {x[Object.keys(x)[0]].average}
                             </td>
-                            {factorsBool[1] && <td>{data.Liquidity[x]}</td>}
-                            {factorsBool[3] && <td>{data.Value[x]}</td>}
-                            {factorsBool[4] && <td>{data.Volatility[x]}</td>}
-                            {factorsBool[5] && <td>{data.Quality[x]}</td>}
-                            <td style={{ paddingRight: "0.5vw" }}>
-                              <section style={{ marginRight: "2vw" }}>
-                                Dummy Av
-                              </section>
-                            </td>
-                          </tr>
-                        );
-                      })}
+                            </tr>
+                          )
+                        })
+                      }
                     </tbody>
                   </table>
                 </div>
@@ -482,62 +497,7 @@ function FactorPortfolio() {
                 className={styles.nseip}
                 type="text"
                 placeholder="tcs,infy"
-              ></input>
-              <div className={styles.factortable}>
-                {/* <div className={styles.avbtn} onClick={() => { scroll(500) }}>Average</div>
-                                <div className={styles.tablediv} ref={ref}> */}
-                <div className={styles.avbtn}>Average</div>
-                <div className={styles.tablediv}>
-                  <table className={styles.table}>
-                    <thead style={{ display: "block" }}>
-                      <tr className={styles.trhead}>
-                        <th
-                          style={{
-                            minWidth: "0",
-                            width: "5vw",
-                            paddingLeft: "2vw",
-                          }}
-                        >
-                          Name
-                        </th>
-                        {factorsBool[1] && <th>Liquidity</th>}
-                        {factorsBool[3] && <th>Value</th>}
-                        {factorsBool[4] && <th>Volatility</th>}
-                        {factorsBool[5] && <th>Quality</th>}
-                        <th style={{ paddingRight: "4vw" }}>Average</th>
-                      </tr>
-                    </thead>
-                    <tbody className={styles.nonhead}>
-                      {table2Indices.map((x) => {
-                        return (
-                          <tr>
-                            <td
-                              style={{
-                                textAlign: "left",
-                                width: "5vw",
-                                minWidth: "0",
-                                paddingLeft: "2vw",
-                                background: "inherit",
-                              }}
-                            >
-                              {data.Name[x]}
-                            </td>
-                            {factorsBool[1] && <td>{data.Liquidity[x]}</td>}
-                            {factorsBool[3] && <td>{data.Value[x]}</td>}
-                            {factorsBool[4] && <td>{data.Volatility[x]}</td>}
-                            {factorsBool[5] && <td>{data.Quality[x]}</td>}
-                            <td style={{ paddingRight: "1vw" }}>
-                              <section style={{ marginRight: "2vw" }}>
-                                Dummy Av
-                              </section>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -545,44 +505,8 @@ function FactorPortfolio() {
     </div>
   );
 }
-
+ 
 export default FactorPortfolio;
-{
-  /*                             <div className={styles.inputboxes}>
-                                    <div className={styles.line1}>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="momentum" id="momentum" />
-                                            <label for="momentum" >Momentum</label>
-                                        </div>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="liquidity" id="liquidity" />
-                                            <label for="liquidity" >Liquidity</label>
-                                        </div>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="size" id="size" />
-                                            <label for="size" >Size</label>
-                                        </div>
-                                    </div>
-                                    <div className={styles.line2}>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="value" id="value" />
-                                            <label for="value" >Value</label>
-                                        </div>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="volatility" id="volatility" />
-                                            <label for="volatility" >Volatility</label>
-                                        </div>
-                                        <div className={styles.viewallbtn}>Select All</div>
-                                    </div>
-                                    <div className={styles.line3}>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="quality" id="quality" />
-                                            <label for="quality" >Quality</label>
-                                        </div>
-                                        <div className={styles.factor}>
-                                            <input className={styles.factorinput} type="checkbox" name="growth" id="growth" />
-                                            <label for="growth" >Growth</label>
-                                        </div>
-                                    </div>
-                                </div> */
-}
+
+
+
