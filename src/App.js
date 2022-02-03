@@ -12,6 +12,7 @@ import Optimiser from "./Components/Optimiser/Optimiser";
 import OptiSlider from "./Components/Optimiser/OptiSlider";
 import Graphs from "./Components/Optimiser/Graphs";
 import OptiSector from "./Components/OptiSector/OptiSector";
+import InsiderTrading from "./Components/InsiderTrading/InsiderTrading";
 function App() {
   return (
     <Router>
@@ -27,6 +28,7 @@ function App() {
             <Route exact path="/graphs" element={<ProtectedRoute><Graphs /></ProtectedRoute>}></Route>
             <Route exact path="/" element={<ProtectedRoute><SignIn /></ProtectedRoute>}></Route>
             <Route path="/optimisersector" element={<ProtectedRoute><OptiSector/></ProtectedRoute>}></Route>
+            <Route path="/insidertrading" element={<ProtectedRoute><InsiderTrading/></ProtectedRoute>}></Route>
           </Routes>
         </Layout>
       </div>

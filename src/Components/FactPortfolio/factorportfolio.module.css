@@ -85,7 +85,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .step, .headrow {
@@ -104,14 +104,16 @@
 
 .datepicker {
     margin-left: 5vw;
-    
+
     /* background: #E9ECEF; */
     /* border: 1px solid #555; */
     /* color: #ADB5BD; */
 }
-.datepicker .today{
+
+.datepicker .today {
     background: #ffcc00 !important;
 }
+
 .bullet {
     background: #F0F4FA;
     height: 5vh;
@@ -152,11 +154,13 @@
 .factors {
     margin-top: 2vh;
 }
-.inputboxes{
+
+.inputboxes {
     display: flex;
     max-width: 30vw;
     flex-wrap: wrap;
 }
+
 .line1, .line2, .line3 {
     display: flex;
     margin-top: 1vh;
@@ -208,24 +212,52 @@
 }
 
 .tablediv {
-    max-width: 50vw;
+    max-width: 80vw;
     overflow-x: auto;
 }
-.nonhead{
-    max-height: 60vh;
+
+.nonhead {
+    max-height: 200px;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     display: block;
 }
-.table thead th, .table tbody td {
-    min-width: 12vw;
+.col1head{
+    padding-left: 31.65px;
+    width: 343px;
 }
 
-.table th, .table td {
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-    text-align: right;
+.table {
+    box-sizing: border-box;
+    border-collapse: collapse;
+    border: 1px solid #E9ECEF;
+    width: 799.25px;
+    margin-top: 17.64px;
+}
+
+.table thead {
+    width: 799.25px;
+    height: 49px;
+    background: #D9DDFF;
+    color: #495057;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.table tbody {
+    /* font-weight: 600; */
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.table tr {
+    height: 49px;
+}
+
+.table,.tablediv {
+    max-width: 698.69px;
 }
 
 .table tr:nth-child(even) {
@@ -244,6 +276,31 @@
 
 .table th {
     color: #495057;
+}
+
+.col2, .col3 {
+    /* min-width: fit-content; */
+    /* text-align: right; */
+}
+
+.col2head, .col3head {
+    min-width: 127px;
+    text-align: right;
+}
+
+.col3head, .col3 {
+    padding-right: 35px;
+}
+
+.col2head, .col2 {
+    padding-right: 66.47px;
+}
+
+.col1 {
+    padding-left: "31.65px";
+    width: "343px";
+    text-align: left;
+    font-weight: 600;
 }
 
 /* , position: "sticky", left: "0", */

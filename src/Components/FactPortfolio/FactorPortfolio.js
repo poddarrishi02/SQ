@@ -1,7 +1,6 @@
 import { React, useState, useRef } from "react";
 import styles from "./factorportfolio.module.css";
-import data from "../../assets/response.json";
-// import DatePicker from '@mui/lab/DatePicker';
+import data from "./factport_response.json";
 import { RiCloseLine } from "react-icons/ri";
 import { DatePicker } from "react-rainbow-components";
 
@@ -13,10 +12,6 @@ const containerStyles = {
 function FactorPortfolio() {
   const [portfolioDate, setPortfolioDate] = useState({ date: new Date() });
 
-  function withCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  const nm = "Name";
   const [showModal, setShowModal] = useState(false);
   const [activeIndex, setactiveIndex] = useState(0);
   const ref = useRef(null);
@@ -26,8 +21,6 @@ function FactorPortfolio() {
   const scroll2 = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
-  const table1Indices = [0, 1, 2, 3, 4, 5, 10];
-  const table2Indices = [0, 2, 5];
   const indices = ["NIFTY 200", "NIFTY 500", "BSE 100", "BSE 200", "BSE 500"];
   const [factorsBool, setfactorsBool] = useState([
     false,
@@ -38,7 +31,7 @@ function FactorPortfolio() {
     false,
     false,
   ]);
-  console.log(factorsBool);
+  // console.log(factorsBool);
   const [factors, setfactors] = useState([
     "Momentum",
     "Liquidity",
@@ -48,6 +41,15 @@ function FactorPortfolio() {
     "Quality",
     "Growth",
   ]);
+  const factors2 = [
+    "momentum",
+    "liquidity",
+    "size",
+    "value",
+    "volatilty",
+    "quality",
+    "growth",
+  ];
   //Liquidity  Value  Volatilty  Quality
   const factorArr = [
     {
@@ -153,19 +155,21 @@ function FactorPortfolio() {
     return x === "Momentum"
       ? 0
       : x === "Liquidity"
-      ? 1
-      : x === "Size"
-      ? 2
-      : x === "Value"
-      ? 3
-      : x === "Volatilty"
-      ? 4
-      : x === "Quality"
-      ? 5
-      : x === "Growth"
-      ? 6
-      : -1;
+        ? 1
+        : x === "Size"
+          ? 2
+          : x === "Value"
+            ? 3
+            : x === "Volatilty"
+              ? 4
+              : x === "Quality"
+                ? 5
+                : x === "Growth"
+                  ? 6
+                  : -1;
   };
+  const table1keys = Object.keys(data)
+  // console.log(table1keys)
   return (
     <div className={styles.outermost}>
       {showModal && (
@@ -423,24 +427,40 @@ function FactorPortfolio() {
                   <table className={styles.table}>
                     <thead style={{ display: "block" }}>
                       <tr className={styles.trhead}>
-                        <th
-                          style={{
-                            minWidth: "0",
-                            width: "5vw",
-                            paddingLeft: "2vw",
-                          }}
-                        >
-                          Name
-                        </th>
-                        {factorsBool[1] && <th>Liquidity</th>}
-                        {factorsBool[3] && <th>Value</th>}
-                        {factorsBool[4] && <th>Volatility</th>}
-                        {factorsBool[5] && <th>Quality</th>}
-                        <th style={{ paddingRight: "4vw" }}>Average</th>
+                        {/* <th className={styles.col1head}></th> */}
+                        {factorsBool.map((x, index) => {
+                          return (
+                            <>
+                              {x && <th className={styles.col2head}>{factors[index]}</th>}
+                            </>
+                          )
+                        })}
+
+                        <th className={styles.col3head}>Average</th>
                       </tr>
                     </thead>
                     <tbody className={styles.nonhead}>
-                      {table1Indices.map((x) => {
+                      {
+                        table1keys.map((x,index)=>{
+                          var temp=Object.keys(data[x])
+                          return(
+                            <tr >
+                              {/* <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{x}</td> */}
+                              {factorsBool[0]&&<td className={styles.col2}>{data[x].momentum}</td>}
+                              {factorsBool[1]&&<td className={styles.col2}>{data[x].liquidity}</td>}
+                              {factorsBool[2]&&<td className={styles.col2}>{data[x].size}</td>}
+                              {factorsBool[3]&&<td className={styles.col2}>{data[x].value}</td>}
+                              {factorsBool[4]&&<td className={styles.col2}>{data[x].volatility}</td>}
+                              {factorsBool[5]&&<td className={styles.col2}>{data[x].quality}</td>}
+                              {factorsBool[6]&&<td className={styles.col2}>{data[x].dividend}</td>}
+                              <td className={styles.col3}>
+                                {data[x].average}
+                            </td>
+                            </tr>
+                          )
+                        })
+                      }
+                      {/* {data.map((x,index) => {
                         return (
                           <tr>
                             <td
@@ -452,20 +472,17 @@ function FactorPortfolio() {
                                 background: "inherit",
                               }}
                             >
-                              {data.Name[x]}
+                              {index}
                             </td>
-                            {factorsBool[1] && <td>{data.Liquidity[x]}</td>}
-                            {factorsBool[3] && <td>{data.Value[x]}</td>}
-                            {factorsBool[4] && <td>{data.Volatility[x]}</td>}
-                            {factorsBool[5] && <td>{data.Quality[x]}</td>}
+                            {factorsBool[index] && <td>{x[factors2[index]]}</td>}
                             <td style={{ paddingRight: "0.5vw" }}>
                               <section style={{ marginRight: "2vw" }}>
-                                Dummy Av
+                                {x.average}
                               </section>
                             </td>
                           </tr>
                         );
-                      })}
+                      })} */}
                     </tbody>
                   </table>
                 </div>
@@ -495,9 +512,7 @@ function FactorPortfolio() {
                 type="text"
                 placeholder="tcs,infy"
               ></input>
-              <div className={styles.factortable}>
-                {/* <div className={styles.avbtn} onClick={() => { scroll(500) }}>Average</div>
-                                <div className={styles.tablediv} ref={ref}> */}
+              {/* <div className={styles.factortable}>
                 <div className={styles.avbtn}>Average</div>
                 <div className={styles.tablediv}>
                   <table className={styles.table}>
@@ -520,7 +535,7 @@ function FactorPortfolio() {
                       </tr>
                     </thead>
                     <tbody className={styles.nonhead}>
-                      {table2Indices.map((x) => {
+                      {data.map((x) => {
                         return (
                           <tr>
                             <td
@@ -549,7 +564,7 @@ function FactorPortfolio() {
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

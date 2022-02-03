@@ -201,12 +201,6 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 4px;
 }
 
-.buttons {
-    display: flex;
-    flex-direction: column;
-
-}
-
 .inputdiv {
     display: flex;
     align-items: center;

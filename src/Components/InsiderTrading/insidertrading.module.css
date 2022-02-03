@@ -1,0 +1,136 @@
+.outer {
+    margin: 5vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90vw;
+    padding-bottom: 65px;
+}
+
+.navheading {
+    color: #495057;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.heading {
+    margin-bottom: 0;
+    margin-top: 64.1px;
+}
+
+.subheading {
+    font-weight: 200;
+    margin: 0;
+    color: #495057;
+    opacity: 70%;
+}
+
+.lookback {
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 26px;
+    margin-top: 80px;
+}
+
+.inputs {
+    margin-top: 27px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.enterdays {
+    font-size: 12px;
+    line-height: 15px;
+    color: #495057;
+}
+
+.resetbtn {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+    text-decoration-line: underline;
+    color: #2637B8;
+}
+
+.inputdiv {
+    display: flex;
+    align-items: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+.days {
+    width: fit-content;
+}
+
+.stephead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.decinp {
+    padding: 10px;
+    padding-left: 20px;
+    background: #E9ECEF;
+    border-radius: 4px;
+}
+
+.selectinp {
+    background: rgba(26, 56, 96, 0.1);
+    color: rgba(28, 48, 74, 0.5);
+    border: none;
+    padding: 10px 5px;
+    font-size: 16px;
+    line-height: 22px;
+    outline: none;
+    border-radius: 4px;
+    width: 285px;
+    height: 36px;
+}
+.sorthead{
+    font-size: 14px;
+    line-height: 18px;
+    color: #495057;
+    margin-bottom: 5px;
+}
+.table {
+    box-sizing: border-box;
+    border-collapse: collapse;
+    border: 1px solid #E9ECEF;
+    width: 799.25px;
+    margin-top: 17.64px;
+    width: 100%;
+}
+
+.table thead {
+    width: 799.25px;
+    height: 49px;
+    background: #D9DDFF;
+    color: #495057;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.table tbody {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.table tr {
+    height: 49px;
+}
+
+.table tr:nth-child(odd) {
+    background: #E9ECEF;
+}
+
+.table th {
+    text-align: left;
+}

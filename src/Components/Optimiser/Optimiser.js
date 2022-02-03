@@ -83,7 +83,6 @@ function Optimiser() {
                     <div className={styles.content}>
                         <div className={styles.headrow}>
                             <div className={styles.stepheading}>Choose investment constraint</div>
-                            <div className={styles.bracketed}>&nbsp;&nbsp;(can be more than one)</div>
                         </div>
                         <div>
                             <div style={{ display: "flex", justifyContent: "space-between" }}>

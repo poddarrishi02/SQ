@@ -3,6 +3,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    padding-bottom: 65px;
 }
 
 .navheading {
@@ -22,12 +23,6 @@
     margin: 0;
     color: #495057;
     opacity: 70%;
-}
-
-.stepsheader {
-    margin-top: 10vh;
-    margin-bottom: 5vh;
-    display: flex;
 }
 
 .description {
@@ -129,7 +124,6 @@
     box-sizing: border-box;
     border-collapse: collapse;
     border: 1px solid #E9ECEF;
-    width: 799.25px;
     margin-top: 17.64px;
     width: 100%;
 }
@@ -156,7 +150,4 @@
 }
 .table th{
     text-align: left;
-}
-.outer{
-    padding-bottom: 65px;
 }
