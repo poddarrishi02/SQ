@@ -385,3 +385,30 @@
 .nseip:focus {
     outline: none;
 }
+.runbtn {
+    margin-left: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 14px;
+    width: 99px;
+    height: 37px;
+    background: #0116CB;
+    border: 1px solid #0116CB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    align-self: flex-end;
+}
+
+.runtext {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Background */
+
+    color: #FFFFFF;
+}

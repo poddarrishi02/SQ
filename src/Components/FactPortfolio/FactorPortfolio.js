@@ -1,27 +1,110 @@
-import { React, useState, useRef,useEffect } from "react";
+import { React, useState, useRef, useEffect } from "react";
 import styles from "./factorportfolio.module.css";
 import importData from "./factport_response.json";
 import { RiCloseLine } from "react-icons/ri";
 import { DatePicker } from "react-rainbow-components";
 import Fuse from 'react-fuzzy'
- 
+
 const containerStyles = {
   maxWidth: 400,
   marginBottom: "10px"
 };
- 
+
 function FactorPortfolio() {
   const [portfolioDate, setPortfolioDate] = useState({ date: new Date() });
   const [data, setData] = useState(importData.data);
-  console.log(data)
+  const [filteredData, setFilteredData] = useState([]);
+
+  const [query, setQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [activeIndex, setactiveIndex] = useState(0);
   useEffect(() => {
-    let tempData = importData.data.map(d => {
-      return {...d, name: Object.keys(d)[0]}
-    })
-    setData(tempData);
+    const initData = async () => {
+      // UNCOMMENT THIS
+      // fetch('http://example.com/movies.json')
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     let tempData = data.data.map(d => {
+      //       return {...d, name: Object.keys(d)[0].toLowerCase()}
+      //     })
+      //     setFilteredData(tempData);
+      //     setData(tempData);
+      //   });
+
+      // COMMENT THIS 
+      let tempData = importData.data.map(d => {
+        return { ...d, name: Object.keys(d)[0].toLowerCase() }
+      })
+      setFilteredData(tempData);
+      await setData(tempData);
+      // TILL HERE
+    }
+    initData();
   }, [])
+
+
+
+  // Add this method
+
+
+  const sendData = async () => {
+    // fetch('http://example.com/movies.json')
+    const dataToBeSent = {
+      date: portfolioDate,
+      universe: indices[activeIndex],
+    }
+    async function postData(url = '', data = {}) {
+      // Default options are marked with *
+      const response = await fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+      });
+      return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    // ENTER URL OF POST REQUEST HERE IN THE ARGUMENT
+    postData('https://example.com/answer', { dataToBeSent })
+      .then(data => {
+        console.log(data); // JSON data parsed by `data.json()` call
+      });
+    // UNCOMMENT TILL HERE
+  }
+
+  // Search Logic
+  const searchUtil = (e) => {
+    let x = e.target.value
+    let temparr = []
+    temparr = x.split(',')
+    let results = []
+    // temparr.map(x=>{console.log(x)})
+    temparr.map((y, id) => {
+      // console.log(y)
+      let value = (y.toLowerCase()).replace(/\s/g, '')
+      console.log(value)
+      let result = [];
+      result = data.filter((data) => {
+        return data.name.search(value) !== -1;
+      });
+      value != '' && results.push(result[0])
+    })
+    // let value = x.toLowerCase();
+    // let result = [];
+    // console.log(`The Value is: `, value);
+    // result = data.filter((data) => {
+    //   return data.name.search(value) !== -1;
+    // });
+    setFilteredData(results);
+    console.log(results);
+  }
 
 
   const ref = useRef(null);
@@ -61,94 +144,6 @@ function FactorPortfolio() {
     "growth",
   ];
   //Liquidity  Value  Volatilty  Quality
-  const factorArr = [
-    {
-      firm: "HDFC",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "BOB",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "ICICI",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "ICICI",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "ICICI",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "ICICI",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "ICICI",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "ICICI",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "ICICI",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-  ];
-  const nseArr = [
-    {
-      firm: "HDFC",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "BOB",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-    {
-      firm: "ICICI",
-      mom: 999999.0,
-      liq: 967999.0,
-      val: 967999.0,
-      av: 967999.0,
-    },
-  ];
   const toggleModal = (x) => {
     setShowModal(x);
   };
@@ -303,7 +298,7 @@ function FactorPortfolio() {
             <div className={styles.content}>
               <div className={styles.headrow}>
                 <div className={styles.stepheading}>Select Date </div>
- 
+
                 <div
                   className="rainbow-align-content_center rainbow-m-vertical_small rainbow-p-horizontal_small rainbow-m_auto"
                   style={containerStyles}
@@ -319,7 +314,7 @@ function FactorPortfolio() {
                     className={styles.datepicker}
                   />
                 </div>
- 
+
                 {/* 
                 <input
                   type="date"
@@ -374,6 +369,9 @@ function FactorPortfolio() {
               </div>
             </div>
           </div>
+          <button className={styles.runbtn} onClick={sendData}>
+            <div className={styles.runtext}>Run</div>
+          </button>
           <div className={styles.step}>
             <div className={styles.leftmenu}>
               <div className={styles.bullet}>
@@ -450,20 +448,20 @@ function FactorPortfolio() {
                     </thead>
                     <tbody className={styles.nonhead}>
                       {
-                        data?.map((x,index)=>{
-                          return(
+                        data?.map((x, index) => {
+                          return (
                             <tr >
                               <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{Object.keys(x)[0]}</td>
-                              {factorsBool[0]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].momentum}</td>}
-                              {factorsBool[1]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].liquidity}</td>}
-                              {factorsBool[2]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].size}</td>}
-                              {factorsBool[3]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].value}</td>}
-                              {factorsBool[4]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].volatility}</td>}
-                              {factorsBool[5]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].quality}</td>}
-                              {factorsBool[6]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].dividend}</td>}
+                              {factorsBool[0] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].momentum}</td>}
+                              {factorsBool[1] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].liquidity}</td>}
+                              {factorsBool[2] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].size}</td>}
+                              {factorsBool[3] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].value}</td>}
+                              {factorsBool[4] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].volatility}</td>}
+                              {factorsBool[5] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].quality}</td>}
+                              {factorsBool[6] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].dividend}</td>}
                               <td className={styles.col3}>
                                 {x[Object.keys(x)[0]].average}
-                            </td>
+                              </td>
                             </tr>
                           )
                         })
@@ -496,6 +494,7 @@ function FactorPortfolio() {
                 className={styles.nseip}
                 type="text"
                 placeholder="tcs,infy"
+                onChange={(e) => { searchUtil(e) }}
               ></input>
               <div className={styles.factortable}>
                 <div className={styles.avbtn}>Average</div>
@@ -516,22 +515,24 @@ function FactorPortfolio() {
                     </thead>
                     <tbody className={styles.nonhead}>
                       {
-                        data?.map((x, index) => {
-                          return (
-                            <tr >
-                              <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{Object.keys(x)[0]}</td>
-                              {factorsBool[0]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].momentum}</td>}
-                              {factorsBool[1]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].liquidity}</td>}
-                              {factorsBool[2]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].size}</td>}
-                              {factorsBool[3]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].value}</td>}
-                              {factorsBool[4]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].volatility}</td>}
-                              {factorsBool[5]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].quality}</td>}
-                              {factorsBool[6]&&<td  key={index} className={styles.col2}>{x[Object.keys(x)[0]].dividend}</td>}
-                              <td className={styles.col3}>
-                                {x[Object.keys(x)[0]].average}
-                            </td>
-                            </tr>
-                          )
+                        filteredData?.map((x, index) => {
+                          if (x) {
+                            return (
+                              <tr >
+                                <td className={styles.col1} style={{ paddingLeft: "31.65px", width: "343px" }}>{Object.keys(x)[0]}</td>
+                                {factorsBool[0] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].momentum}</td>}
+                                {factorsBool[1] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].liquidity}</td>}
+                                {factorsBool[2] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].size}</td>}
+                                {factorsBool[3] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].value}</td>}
+                                {factorsBool[4] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].volatility}</td>}
+                                {factorsBool[5] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].quality}</td>}
+                                {factorsBool[6] && <td key={index} className={styles.col2}>{x[Object.keys(x)[0]].dividend}</td>}
+                                <td className={styles.col3}>
+                                  {x[Object.keys(x)[0]].average}
+                                </td>
+                              </tr>
+                            )
+                          }
                         })
                       }
                     </tbody>
@@ -545,7 +546,7 @@ function FactorPortfolio() {
     </div>
   );
 }
- 
+
 export default FactorPortfolio;
 
 
