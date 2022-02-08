@@ -1,4 +1,3 @@
-
 .outer {
     margin: 5vw;
     position: absolute;
@@ -28,9 +27,11 @@
     margin-top: 5vh;
     width: 50vw;
 }
-.steps{
+
+.steps {
     margin-top: 64px;
 }
+
 .stepsheader {
     margin-top: 10vh;
     margin-bottom: 5vh;
@@ -103,7 +104,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2vh 2vw;
+    padding: 11px 22px;
     border-radius: 2vw;
     margin-left: 2vw;
     cursor: pointer;
@@ -223,4 +224,91 @@ input[type=number]::-webkit-outer-spin-button {
 .cnstr {
     display: flex;
     margin: auto;
+}
+
+.uploadbtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 14px;
+    background: #0116CB;
+    border-radius: 4px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.btntxt {
+    font-weight: 600;
+    /* font-size: 16px; */
+    /* line-height: 20px; */
+    /* display: flex;
+    align-items: center;
+    text-align: center; */
+    color: #FFFFFF;
+    /* flex: none;
+    order: 1;
+    flex-grow: 0; */
+}
+
+.btnsidetxt {
+    font-size: 16px;
+    /* line-height: 161.1%; */
+    color: #495057;
+    margin-left: 10px;
+}
+
+.upload {
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    background: #E9ECEF;
+    border: 1px dashed #E9ECEF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 14px;
+    padding-left: 18px;
+    padding-right: 76px;
+    margin-top: 18px;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 260px;
+}
+
+.checkbox {
+    accent-color: #2637B8;
+    background-color: #ADB5BD;
+    height: 18px;
+    color: #2637B8;
+    width: 18px;
+}
+
+.neg {
+    display: flex;
+    width: 270px;
+    height: 30px;
+    align-items: center;
+    padding: 3px 0px;
+    margin-bottom: 7px;
+}
+
+.input2 {
+    margin-left: 89px;
+}
+
+.inputs {
+    display: flex;
+}
+
+.clearbtn {
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 161.1%;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #0116CB;
 }

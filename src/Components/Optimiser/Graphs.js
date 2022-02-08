@@ -178,7 +178,7 @@ function Graphs() {
                 <HorizontalChart />
                 </div>}
             {activeMenu === 2 && <div>
-                <div>
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width:"100%"}}>
                     <table className={styles.btable}>
                         <thead>
                             <th></th>
